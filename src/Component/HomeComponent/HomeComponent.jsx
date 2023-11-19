@@ -7,9 +7,15 @@ const HomeComponent = () => {
    console.log(data);
    return (
 
-      <div className='main-container'>
 
-         {data.map(data => (<div key={data._id} className='dance-container'>
+      <div className='main-container'>
+            {
+      loading && <h4>Loading.....</h4>
+    }
+    {
+      error && <h4>{error}</h4>
+    }
+         {!loading && !error && data?.map(data => (<div key={data._id} className='dance-container'>
             <div className='container'>
                <video src={`${BASE_URL}/dance/${data.video}`} controls className='video'></video>
             </div>
