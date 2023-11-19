@@ -32,10 +32,16 @@
  /* WebKit effect for video */
  .video {
    -webkit-filter: brightness(1.2) contrast(1.2);
+   padding: 10px;
+   background-color: #f77777;
+
  }
  
  /* WebKit effect for audio */
  .audio {
-   /* Add your audio-specific styles here */
+ background-color: #f77777;
  }
- 
+ .p-sign{
+  font-size: large;
+  font-weight: bold;
+ }

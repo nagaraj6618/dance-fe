@@ -34,7 +34,7 @@ const UploadComponent = () => {
       else {
          formDatas.audio = '/assets/' + audioFile.name
          formDatas.video = '/assets/' + videoFile.name
-         console.log(formDatas.type, audioFile.name, videoFile.name)
+
 
 
 
@@ -46,11 +46,12 @@ const UploadComponent = () => {
          try {
             const response = await fetch(`${BASE_URL}/dance/upload/audio`, {
                method: 'POST',
-
+               credentials: 'include',
                body: audioData,
             })
             const responses = await fetch(`${BASE_URL}/dance/upload/video`, {
                method: 'POST',
+               credentials: 'include',
                body: videoData,
             })
 
@@ -60,7 +61,7 @@ const UploadComponent = () => {
                   'Content-Type': 'application/json',
 
                },
-
+               credentials: 'include',
                body: JSON.stringify(formDatas)
             })
             if (responseData.status === 200 || response.status === 200 || responses.status === 200) {
