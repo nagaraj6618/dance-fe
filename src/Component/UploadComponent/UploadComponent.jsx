@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { BASE_URL } from '../../utils/config'
+import './UploadComponent.css'
 const UploadComponent = () => {
 
    const [audioFile, setAudioFile] = useState(null)
@@ -75,7 +76,7 @@ const UploadComponent = () => {
       }
    }
    return (
-      <div >
+      <div className='upload-container'>
          <div>
             <form onSubmit={formhandler}>
                <div>
