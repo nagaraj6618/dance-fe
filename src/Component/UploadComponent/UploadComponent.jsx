@@ -9,6 +9,10 @@ const UploadComponent = () => {
       type: 'others',
       audio: '',
       video: '',
+      title: '',
+      language: 'tamil',
+      trending: false,
+      rating: ''
    });
 
    const handleAudioFileChange = (event) => {
@@ -81,6 +85,10 @@ const UploadComponent = () => {
          <div>
             <form onSubmit={formhandler}>
                <div>
+                  <label>Title</label>
+                  <input type='text' onChange={handleChange} value={formDatas.title} name='title'></input>
+               </div>
+               <div>
                   <label>Audio File </label>
                   <input type='file'
                      onChange={handleAudioFileChange}
@@ -102,6 +110,20 @@ const UploadComponent = () => {
                      <option>Hip Hop</option>
                      <option>Classical</option>
                      <option>Folk</option>
+                  </select>
+               </div>
+               <div>
+                  <label>Rating</label>
+                  <input type='text' onChange={handleChange} value={formDatas.rating} pattern='[0-5]' name='rating'></input>
+               </div>
+               <div>
+                  <label>Trending</label>
+                  <select value={formDatas.trending}
+                     onChange={handleChange}
+                     name='trending'
+                  >
+                     <option value={true}>True</option>
+                     <option value={false}>False</option>
                   </select>
                </div>
                <div>

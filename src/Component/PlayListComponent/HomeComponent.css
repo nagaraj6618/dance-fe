@@ -10,6 +10,10 @@
    display: flex;
    flex-wrap: wrap;
    justify-content: space-around;
+
+ }
+ .main-container-close{
+  opacity: 0.4;
  }
  
  .dance-container {
@@ -44,4 +48,47 @@
  .p-sign{
   font-size: large;
   font-weight: bold;
+ }
+ .header{
+  margin: 50px;
+  background-color: #f77777;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  padding:0.2px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+ }
+ .header h1{
+  font-weight: lighter;
+ }
+ .audios{
+  background-color: #f77777;
+ }
+ .rating{
+  margin-left: 15px;
+ }
+ .suggestion{
+  /* max-height: max-content; */
+  padding: 20px;
+
+  /* color: white; */
+ }
+ .suggestion-container{
+  margin: 10px;
+  position:absolute;
+  top:20%;
+ display: flex;
+ flex-direction: column;
+  height: max-content;
+align-items: center;
+/* background-color: #f77777; */
+/* justify-content: center; */
+border: solid 1px black;
+  /* padding: 20px; */
+  border-radius: 10px;
+  width: 98%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+ }
+ .suggestion-container-close{
+  display: none;
  }

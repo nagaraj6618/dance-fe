@@ -2,6 +2,8 @@ import React, { useState,useContext, useEffect } from 'react'
 import useFetch from '../../hooks/useFetch'
 import { BASE_URL } from '../../utils/config'
 import { AuthContext } from '../../context/AuthContext'
+import { IoStarOutline } from "react-icons/io5";
+import '../PlayListComponent/HomeComponent.css'
 const SongTypeComponent = () => {
    const { data: getdata, loading, error } = useFetch(`${BASE_URL}/dance`)
    const { user } = useContext(AuthContext)
@@ -42,6 +44,7 @@ const SongTypeComponent = () => {
             <div className='container'>
                <audio src={`${BASE_URL}/dance/${data.audio}`} controls className='audio'></audio>
             </div>
+            <p className='rating'>Rating : {data.rating}.0/5.0 <IoStarOutline /></p>
          </div>)) : <p className='p-sign'>Please Sign in...</p>}
       </div>
    )
