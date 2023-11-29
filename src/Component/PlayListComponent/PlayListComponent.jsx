@@ -15,15 +15,17 @@ const PlayListComponent = () => {
    const handleChange = (e) => {
       setChooseType(e.target.value)
    }
-   const handleSuggestion = (rating) => {
-      const datas = getdata.filter(data => data.rating >= rating)
+   const handleSuggestion = (desc) => {
+      // const datas = getdata.filter(data => data.rating >= rating)
       // alert(`Suggestions : ${datas.map(data => data.title)}`)
-      setSuggestData(datas)
+      setSuggestData(desc)
+      console.log(desc)
       setMaincontainer('main-container-close')
       setSuggestClasName('suggestion-container')
+      document.documentElement.style.scrollBehavior = 'smooth';
       window.scrollTo({
          top: 0,
-         behavior: 'smooth', // You can use 'auto' or 'smooth' for animation
+         behavior: 'smooth', 
        });
    }
    const closehandler = () => {
@@ -33,7 +35,7 @@ const PlayListComponent = () => {
 
    return (
 
-      <div>
+      <div className='full-container'>
          <div className={mainContainer}>
 
             <select value={chooseType}
@@ -60,7 +62,7 @@ const PlayListComponent = () => {
                <div className='container'>
                   <audio src={`${BASE_URL}/dance/${data.audio}`} controls className='audio'></audio>
                </div>
-               <p className='rating'>Rating : {data.rating}.0/5.0 <IoStarOutline /> <button onClick={() => handleSuggestion(data.rating)}>Suggestion</button></p>
+               <p className='rating'>Rating : {data.rating}.0/5.0 <IoStarOutline /> <button onClick={() => handleSuggestion(data.desc)} className='btn'>Suggestion</button></p>
 
             </div>))
                : chooseType === 'video' ?
@@ -87,12 +89,16 @@ const PlayListComponent = () => {
          </div>
          {suggestData &&
             <div className={suggestClassName}>
-               Suggestions
+              <p className='suggest-p'> Suggestions</p>
                {
-                  suggestData.map(data => <div className='suggestion' key={data.title}>{data.title}</div>)
+                  suggestData.map(data => (<div className='suggestion' key={data}>
+                                          <div className='container'>
+                        <video src={`${BASE_URL}/dance/${data}`} controls className='video'></video>
+                     </div>
+                  </div>))
 
                }
-               <button onClick={closehandler}>close</button>
+               <button onClick={closehandler} className='btn btn-close'>close</button>
 
             </div>
          }
